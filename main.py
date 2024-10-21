@@ -2,7 +2,7 @@ class User:
     def __init__(self, user_id, name):
         self.__user_id = user_id
         self.__name = name
-        self.__assess_level = 'user'
+        self.__access_level = 'user'
 
     def get_user_id(self):
         return self.__user_id
@@ -40,5 +40,20 @@ class Admin(User):
 
     def __str__(self):
         return f"Admin(ID: {self.get_user_id()}, Name: {self.get_name()}, Access Level: {self.__access_level})"
-    
 
+
+if __name__ == "__main__":
+    users = []
+
+admin = Admin(1, "John Admin")
+
+admin.add_user(users, 2, "Alice User")
+admin.add_user(users, 3, "Bob User")
+
+for user in users:
+    print(user)
+
+admin.remove_user(users, 2)
+
+for user in users:
+    print(user)
